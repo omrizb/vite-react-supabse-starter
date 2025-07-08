@@ -1,0 +1,72 @@
+@import '../../style/_theme.scss';
+
+// Component-specific variables
+$accordion-text-color: $clr-gray-800;
+$accordion-icon-color: $clr-gray-500;
+$accordion-padding: $spacing-4;
+$accordion-content-padding: $spacing-6;
+$accordion-transition-button: 0.2s ease-in-out;
+$accordion-transition-expand: 0.2s cubic-bezier(1, 0, 1, 0);
+$accordion-transition-collapse: 0.5s cubic-bezier(0, 1, 0, 1);
+
+.accordion {
+    width: 100%;
+
+    .accordion-item {
+        &:not(:last-child) {
+            margin-bottom: $spacing-2;
+        }
+    }
+
+    .accordion-header {
+        width: 100%;
+        padding: $accordion-padding;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color $accordion-transition-button;
+
+        &:hover {
+            color: $clr-primary;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        span {
+            font-weight: $font-weight-medium;
+            color: $accordion-text-color;
+            text-align: left;
+        }
+
+        svg {
+            color: $accordion-icon-color;
+            transition: transform $accordion-transition-button;
+            flex-shrink: 0;
+        }
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 $accordion-content-padding;
+        transition: all $accordion-transition-collapse;
+
+        &.active {
+            height: auto;
+            max-height: 1000px;
+            padding-bottom: $accordion-content-padding;
+            transition: all $accordion-transition-expand;
+        }
+
+        > div {
+            overflow: hidden;
+            color: $clr-gray-600;
+            line-height: 1.6;
+        }
+    }
+} 
