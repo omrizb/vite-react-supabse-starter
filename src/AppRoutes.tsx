@@ -6,9 +6,9 @@ import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { Error } from './pages/Error'
 
 import { LoadingSpinner } from './components/ui/LoadingSpinner'
-import { ErrorMessage } from './components/ui/ErrorMessage'
 
 import './style/main.scss'
 
@@ -16,11 +16,20 @@ export function AppRoutes() {
     const { session, loadingSession, error } = useAppSelector(state => state.authModule)
 
     if (loadingSession) {
-        return <LoadingSpinner message="Loading Momenti" />
+        return <LoadingSpinner message="Loading" />
     }
 
     if (error) {
-        return <ErrorMessage title="Error" message={error.message} />
+        const errorMessage = error instanceof Error ? error.message : 'An authentication error occurred'
+        return (
+            <Router>
+                <Error
+                    title="Authentication Error"
+                    message={errorMessage}
+                    code={500}
+                />
+            </Router>
+        )
     }
 
     return (
@@ -32,6 +41,7 @@ export function AppRoutes() {
                     <Route index element={<Home />} />
                     <Route path="dashboard" element={session ? <Dashboard /> : <Navigate to="/login" replace />} />
                 </Route>
+                <Route path="*" element={<Error title="Page Not Found" message="The page you are looking for does not exist." code={404} />} />
             </Routes>
         </Router>
     )
