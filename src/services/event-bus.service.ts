@@ -27,12 +27,12 @@ function createEventEmitter() {
     }
 }
 
-export const eventBus = createEventEmitter()
+export const eventBusService = createEventEmitter()
 
 type UserMsg = { txt: string; type?: 'success' | 'error' }
 
 export function showUserMsg(msg: UserMsg): void {
-    eventBus.emit<UserMsg>(SHOW_MSG, msg)
+    eventBusService.emit<UserMsg>(SHOW_MSG, msg)
 }
 
 export function showSuccessMsg(txt: string): void {
@@ -46,7 +46,7 @@ export function showErrorMsg(txt: string): void {
 type TooltipProps = Record<string, any>
 
 export function showTooltip(props: TooltipProps): void {
-    eventBus.emit(SHOW_TOOLTIP, props)
+    eventBusService.emit(SHOW_TOOLTIP, props)
 }
 
 // Optional global access

@@ -5,6 +5,7 @@ export const colorUtilService = {
     adjustBrightness,
     getRandomColor,
     hexToRgb,
+    hexToRgba,
     hsvToRgb,
     rgbToHex,
     rgbToHsv
@@ -26,6 +27,24 @@ function hexToRgb(hex: string): RGB {
         g: (bigint >> 8) & 255,
         b: bigint & 255
     }
+}
+
+function hexToRgba(hex: string, alpha: number): string {
+    let parsedHex = hex.replace('#', '')
+
+    if (parsedHex.length === 3) {
+        parsedHex = parsedHex
+            .split('')
+            .map(c => c + c)
+            .join('')
+    }
+
+    const bigint = parseInt(parsedHex, 16)
+    const r = (bigint >> 16) & 255
+    const g = (bigint >> 8) & 255
+    const b = bigint & 255
+
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
 function rgbToHex(r: number, g: number, b: number): string {
