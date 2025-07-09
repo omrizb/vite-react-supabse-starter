@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppSelector } from '../hooks/useStore'
-import { storageUtils } from '../utils/storage.utils'
+import { useAppSelector } from '../../hooks/useStore'
+import { storageUtils } from '../../utils/storage.utils'
 
 
 const { POST_LOGIN_REDIRECT_KEY } = import.meta.env

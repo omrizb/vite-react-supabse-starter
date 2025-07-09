@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { initAuth, startAuthStateListener } from '../store/auth.actions'
+import { initAuth, startAuthStateListener } from '../../store/auth.actions'
 
 export function AuthInitializer() {
     useEffect(() => {

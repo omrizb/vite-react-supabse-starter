@@ -1,9 +1,23 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAppSelector } from '../hooks/useStore'
-import { signOut } from '../store/auth.actions'
+import { useAppSelector } from '../../hooks/useStore'
+import { signOut } from '../../store/auth.actions'
 import { useState, useRef, useEffect, type MouseEvent } from 'react'
 import { FaBars, FaTimes, FaUserCircle, FaSignOutAlt } from 'react-icons/fa'
-import './Navigation.scss'
+import {
+    NavigationWrapper,
+    NavBrand,
+    NavLinks,
+    NavLink,
+    NavButton,
+    UserIndicator,
+    UserTrigger,
+    UserAvatar,
+    UserIcon,
+    UserName,
+    UserMenu,
+    UserMenuItem,
+    HamburgerButton
+} from './Navigation.styled'
 
 export function Navigation() {
     const session = useAppSelector(state => state.authModule.session)
@@ -49,57 +63,53 @@ export function Navigation() {
     }
 
     return (
-        <nav className="navigation">
-            <div className="nav-brand">
+        <NavigationWrapper>
+            <NavBrand>
                 <Link to="/">Navbar</Link>
-            </div>
-            <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-                <Link
+            </NavBrand>
+
+            <NavLinks className={isMobileMenuOpen ? 'mobile-open' : ''}>
+                <NavLink
                     to="/dashboard"
-                    className={`nav-link ${isActive('/dashboard') ? 'active' : ''}`}
+                    $active={isActive('/dashboard')}
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
                     Dashboard
-                </Link>
-            </div>
+                </NavLink>
+            </NavLinks>
+
             {session ? (
-                <div className="user-indicator" ref={userMenuRef}>
-                    <button
-                        className="user-trigger"
-                        onClick={toggleUserMenu}
-                        aria-expanded={isUserMenuOpen}
-                    >
+                <UserIndicator ref={userMenuRef}>
+                    <UserTrigger onClick={toggleUserMenu} aria-expanded={isUserMenuOpen}>
                         {session.user.user_metadata.picture ? (
-                            <img
+                            <UserAvatar
                                 src={getProxiedImageUrl(session.user.user_metadata.picture)}
                                 alt={session.user.user_metadata.name || 'User'}
-                                className="user-avatar"
                             />
                         ) : (
-                            <FaUserCircle className="user-icon" />
+                            <UserIcon><FaUserCircle /></UserIcon>
                         )}
-                        <span className="user-name">{session.user.user_metadata.name || 'User'}</span>
-                    </button>
+                        <UserName>{session.user.user_metadata.name || 'User'}</UserName>
+                    </UserTrigger>
+
                     {isUserMenuOpen && (
-                        <div className="user-menu">
-                            <button onClick={handleSignOut} className="user-menu-item">
+                        <UserMenu>
+                            <UserMenuItem onClick={handleSignOut}>
                                 <FaSignOutAlt />
                                 <span>Sign Out</span>
-                            </button>
-                        </div>
+                            </UserMenuItem>
+                        </UserMenu>
                     )}
-                </div>
+                </UserIndicator>
             ) : (
-                <button
-                    onClick={() => navigate('/login')}
-                    className="nav-button"
-                >
+                <NavButton onClick={() => navigate('/login')}>
                     Sign In
-                </button>
+                </NavButton>
             )}
-            <button className="hamburger" onClick={toggleMobileMenu} aria-label="Toggle menu">
+
+            <HamburgerButton onClick={toggleMobileMenu} aria-label="Toggle menu">
                 {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-        </nav>
+            </HamburgerButton>
+        </NavigationWrapper>
     )
 }

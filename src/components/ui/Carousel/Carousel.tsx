@@ -97,9 +97,9 @@ export function Carousel({
                         <img src={item.image} alt={item.title || `Slide ${index + 1}`} />
                         {showTextOverlay && (item.title || item.description) && (
                             <SlideText
-                                position={textOverlayPosition}
-                                background={textOverlayBackground}
-                                color={textOverlayColor}
+                                $position={textOverlayPosition}
+                                $background={textOverlayBackground}
+                                $color={textOverlayColor}
                             >
                                 {item.title && <div>{item.title}</div>}
                                 {item.description && <div>{item.description}</div>}
@@ -109,16 +109,16 @@ export function Carousel({
                 ))}
             </CarouselContainer>
 
-            <CarouselButton position="left" onClick={prevSlide}>
+            <CarouselButton $position="left" onClick={prevSlide}>
                 <FaChevronLeft />
             </CarouselButton>
-            <CarouselButton position="right" onClick={nextSlide}>
+            <CarouselButton $position="right" onClick={nextSlide}>
                 <FaChevronRight />
             </CarouselButton>
 
             <Indicators>
                 {items.map((_, index) => (
-                    <Indicator key={index} active={index === currentIndex} onClick={() => goToSlide(index)} />
+                    <Indicator key={index} $active={index === currentIndex} onClick={() => goToSlide(index)} />
                 ))}
             </Indicators>
         </CarouselWrapper>

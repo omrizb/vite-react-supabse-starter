@@ -7,7 +7,6 @@ import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { Error } from './pages/Error'
-
 import { LoadingSpinner } from './components/ui/LoadingSpinner'
 
 import './style/main.scss'

@@ -26,23 +26,23 @@ export const Slide = styled.div<{ height: string }>`
 `
 
 export const SlideText = styled.div<{
-    position: 'top' | 'bottom';
-    background: string;
-    color: string;
+    $position: 'top' | 'bottom';
+    $background: string;
+    $color: string;
 }>`
     position: absolute;
-    ${({ position }) => `${position}: 0;`}
+    ${({ $position }) => `${$position}: 0;`}
     left: 0;
     right: 0;
     padding: var(--size-8) var(--size-3);
-    background: ${({ background }) => background};
-    color: ${({ color }) => color};
+    background: ${({ $background }) => $background};
+    color: ${({ $color }) => $color};
 `
 
-export const CarouselButton = styled.button<{ position: 'left' | 'right' }>`
+export const CarouselButton = styled.button<{ $position: 'left' | 'right' }>`
     position: absolute;
     top: 50%;
-    ${({ position }) => `${position}: var(--size-3);`}
+    ${({ $position }) => `${$position}: var(--size-3);`}
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     border: none;
@@ -70,11 +70,11 @@ export const Indicators = styled.div`
     gap: var(--size-2);
 `
 
-export const Indicator = styled.div<{ active: boolean }>`
+export const Indicator = styled.div<{ $active: boolean }>`
     width: 8px;
     height: 8px;
     border-radius: var(--radius-round);
-    background: ${({ active }) => (active ? 'white' : 'rgba(255,255,255,0.5)')};
+    background: ${({ $active }) => ($active ? 'white' : 'rgba(255,255,255,0.5)')};
     cursor: pointer;
     transition: background-color var(--transition-normal);
 
