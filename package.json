@@ -1,5 +1,5 @@
 {
-  "name": "vite-react-ts-starter",
+  "name": "vite-react-supabase-starter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,22 +12,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
+    "@emotion/react": "^11.14.0",
     "@reduxjs/toolkit": "^2.2.6",
     "axios": "^1.7.2",
+    "next-themes": "^0.4.6",
+    "open-props": "^1.7.15",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-icons": "^5.3.0",
+    "react-icons": "^5.5.0",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.24.1",
     "redux": "^5.0.1",
     "sass": "^1.77.8",
-    "socket.io-client": "^4.7.5"
+    "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@types/styled-components": "^5.1.34",
     "@vitejs/plugin-react": "^4.5.2",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
