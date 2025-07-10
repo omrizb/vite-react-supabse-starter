@@ -13,7 +13,7 @@ interface AuthState {
     session: AuthSession | null
     profile: Profile | null
     loadingSession: boolean
-    error: unknown | null
+    error: Error | null
 }
 
 const initialState: AuthState = {
@@ -27,7 +27,7 @@ type AuthAction =
     | { type: AuthActionType.SET_SESSION; session: AuthSession | null }
     | { type: AuthActionType.SET_PROFILE; profile: Profile | null }
     | { type: AuthActionType.SET_LOADING_SESSION; isLoading: boolean }
-    | { type: AuthActionType.SET_AUTH_ERROR; error: unknown }
+    | { type: AuthActionType.SET_AUTH_ERROR; error: Error }
     | { type: AuthActionType.CLEAR_AUTH }
 
 export function authReducer(state: AuthState = initialState, action: AuthAction): AuthState {

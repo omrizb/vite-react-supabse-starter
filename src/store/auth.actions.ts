@@ -99,7 +99,10 @@ function getCmdSetLoadingSession(isLoading: boolean) {
 }
 
 function getCmdSetAuthError(error: unknown) {
-    return { type: AuthActionType.SET_AUTH_ERROR, error }
+    return {
+        type: AuthActionType.SET_AUTH_ERROR,
+        error: error instanceof Error ? error : new Error('Unknown error')
+    }
 }
 
 function getCmdClearAuth() {

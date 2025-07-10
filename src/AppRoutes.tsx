@@ -19,12 +19,11 @@ export function AppRoutes() {
     }
 
     if (error) {
-        const errorMessage = error instanceof Error ? error.message : 'An authentication error occurred'
         return (
             <Router>
                 <Error
                     title="Authentication Error"
-                    message={errorMessage}
+                    message={error.message}
                     code={500}
                 />
             </Router>
