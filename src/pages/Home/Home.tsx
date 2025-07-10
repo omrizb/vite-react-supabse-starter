@@ -1,13 +1,21 @@
-import { useState } from 'react'
-
-import { Accordion, type AccordionItem } from '../components/ui/Accordion'
-import { Carousel, type CarouselItem } from '../components/ui/Carousel'
-
-import './Home.scss'
+import { Accordion, type AccordionItem } from '../../components/ui/Accordion'
+import { Carousel, type CarouselItem } from '../../components/ui/Carousel'
+import {
+    HomeWrapper,
+    Hero,
+    HeroTitle,
+    HeroSubtitle,
+    Showcase,
+    ShowcaseHeading,
+    ComponentsGrid,
+    ComponentDemo,
+    Features,
+    FeaturesHeading,
+    FeaturesGrid,
+    FeatureCard
+} from './Home.styled'
 
 export function Home() {
-    const [activeAccordion, setActiveAccordion] = useState(0)
-
     const accordionItems: AccordionItem[] = [
         {
             title: 'What is this starter kit?',
@@ -45,50 +53,45 @@ export function Home() {
     ]
 
     return (
-        <div className="home">
-            <section className="hero">
-                <h1>React UI Components Starter</h1>
-                <p className="subtitle">
+        <HomeWrapper>
+            <Hero>
+                <HeroTitle>React UI Components Starter</HeroTitle>
+                <HeroSubtitle>
                     A collection of modern, reusable UI components built with React and SCSS
-                </p>
-            </section>
+                </HeroSubtitle>
+            </Hero>
 
-            <section className="showcase">
-                <h2>Featured Components</h2>
-                <div className="components-grid">
-                    <div className="component-demo">
+            <Showcase>
+                <ShowcaseHeading>Featured Components</ShowcaseHeading>
+                <ComponentsGrid>
+                    <ComponentDemo>
                         <h3>Accordion Component</h3>
-                        <Accordion
-                            items={accordionItems}
-                            activeIndex={activeAccordion}
-                            onToggle={setActiveAccordion}
-                        />
-                    </div>
-
-                    <div className="component-demo">
+                        <Accordion items={accordionItems} />
+                    </ComponentDemo>
+                    <ComponentDemo>
                         <h3>Carousel Component</h3>
                         <Carousel items={carouselItems} />
-                    </div>
-                </div>
-            </section>
+                    </ComponentDemo>
+                </ComponentsGrid>
+            </Showcase>
 
-            <section className="features">
-                <h2>Key Features</h2>
-                <div className="features-grid">
-                    <div className="feature">
+            <Features>
+                <FeaturesHeading>Key Features</FeaturesHeading>
+                <FeaturesGrid>
+                    <FeatureCard>
                         <h3>Customizable</h3>
                         <p>All components can be easily customized through props and SCSS variables</p>
-                    </div>
-                    <div className="feature">
+                    </FeatureCard>
+                    <FeatureCard>
                         <h3>Responsive</h3>
                         <p>Built with mobile-first approach and responsive design principles</p>
-                    </div>
-                    <div className="feature">
+                    </FeatureCard>
+                    <FeatureCard>
                         <h3>Accessible</h3>
                         <p>Follows accessibility best practices and WCAG guidelines</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+                    </FeatureCard>
+                </FeaturesGrid>
+            </Features>
+        </HomeWrapper>
     )
-} 
+}

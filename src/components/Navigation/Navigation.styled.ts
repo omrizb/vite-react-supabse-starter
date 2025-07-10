@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 
 export const NavigationWrapper = styled.nav`
     height: var(--nav-height);
-    background-color: var(--surface-1);
+    background-color: white;
     border-bottom: 1px solid var(--gray-2);
-    padding: 0 var(--size-6);
+    padding: var(--size-2) var(--size-6);
     display: flex;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: var(--layer-modal);
+    z-index: 100;
     box-shadow: var(--shadow-1);
 `
 
@@ -20,8 +20,8 @@ export const NavBrand = styled.div`
     margin-right: var(--size-8);
 
     a {
-        font-size: var(--font-size-xl);
-        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-5);
+        font-weight: var(--font-weight-6);
         text-decoration: none;
         color: var(--blue-8);
         transition: opacity var(--transition-normal);
@@ -46,7 +46,7 @@ export const NavLinks = styled.div<{ $mobileOpen?: boolean }>`
 export const NavLink = styled(Link) <{ $active?: boolean }>`
     text-decoration: none;
     color: var(--gray-6);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-5);
     font-size: var(--font-size-base);
     padding: var(--size-2) var(--size-3);
     border-radius: var(--radius-2);
