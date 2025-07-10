@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useAppSelector } from './hooks/useStore'
 
 import { PostLoginRedirect } from './components/PostLoginRedirect'
-import { Layout } from './components/Layout'
+import { Layout } from './layouts/RootLayout/Layout'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
