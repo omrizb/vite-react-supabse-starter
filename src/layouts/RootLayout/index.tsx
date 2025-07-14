@@ -1,17 +1,16 @@
+import { Box } from '@chakra-ui/react'
 import { Outlet } from 'react-router-dom'
 import { Navigation } from '../../components/Navigation'
-import { LayoutHeader, LayoutMain } from './Layout.styled'
-
 
 export function Layout() {
     return (
         <>
-            <LayoutHeader>
+            <Box as='header' pt='64px'>
                 <Navigation />
-            </LayoutHeader>
-            <LayoutMain>
+            </Box>
+            <Box as='main'>
                 <Outlet />
-            </LayoutMain>
+            </Box>
         </>
     )
 }
