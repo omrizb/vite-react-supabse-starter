@@ -49,7 +49,7 @@ export function Home() {
     return (
         <Container maxW="6xl" py={8}>
             <Box textAlign="center" mb={10} py={8}>
-                <Heading size="4xl" mb={4} color="primary">
+                <Heading size="4xl" mb={4} color="heading">
                     React UI Components Starter
                 </Heading>
                 <Text fontSize="xl" color="gray.600" maxW="800px" mx="auto">

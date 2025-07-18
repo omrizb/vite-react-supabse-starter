@@ -10,6 +10,7 @@ import { Error } from './pages/Error'
 import { LoadingSpinner } from './components/ui/LoadingSpinner'
 
 import './style/main.scss'
+import { About } from './pages/About'
 
 export function AppRoutes() {
     const { session, loadingSession, error } = useAppSelector(state => state.authModule)
@@ -38,6 +39,7 @@ export function AppRoutes() {
                 <Route element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="dashboard" element={session ? <Dashboard /> : <Navigate to="/login" replace />} />
+                    <Route path="about" element={<About />} />
                 </Route>
                 <Route path="*" element={<Error title="Page Not Found" message="The page you are looking for does not exist." code={404} />} />
             </Routes>

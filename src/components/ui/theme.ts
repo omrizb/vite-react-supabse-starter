@@ -30,8 +30,9 @@ const config = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: { value: "darkblue" },
-        secondary: { value: "#EE0F0F" },
+        primary: { value: "#27272a" }, // gray-800
+        secondary: { value: "#71717a" }, // gray-500
+        heading: { value: "#173da6" }, // blue-700
       },
       fonts: {
         body: { value: "system-ui, sans-serif" },
