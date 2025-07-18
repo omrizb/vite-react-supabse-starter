@@ -6,11 +6,11 @@ import { Layout } from './layouts/RootLayout'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { About } from './pages/About'
 import { Error } from './pages/Error'
 import { LoadingSpinner } from './components/ui/LoadingSpinner'
 
-import './style/main.scss'
-import { About } from './pages/About'
+import 'open-props/open-props.min.css'
 
 export function AppRoutes() {
     const { session, loadingSession, error } = useAppSelector(state => state.authModule)
