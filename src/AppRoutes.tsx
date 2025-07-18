@@ -8,16 +8,11 @@ import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { About } from './pages/About'
 import { Error } from './pages/Error'
-import { LoadingSpinner } from './components/ui/LoadingSpinner'
 
 import 'open-props/open-props.min.css'
 
 export function AppRoutes() {
-    const { session, loadingSession, error } = useAppSelector(state => state.authModule)
-
-    if (loadingSession) {
-        return <LoadingSpinner message="Loading" />
-    }
+    const { session, error } = useAppSelector(state => state.authModule)
 
     if (error) {
         return (
